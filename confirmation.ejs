@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.108.0">
+    <title>Shortened URL</title>
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet">
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <style>
+      .card {
+        border-top: none;
+      }
+
+      #qrcode {
+        padding: 2%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      img {
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        border-radius: 3%;
+      }
+  
+    </style>
+
+
+
+  </head>
+
+  <body>
+
+
+    <main>
+
+      <div class="container py-4">
+        <header class="pb-3 mb-4 border-bottom">
+
+          <a href="/" class="d-flex align-items-center text-dark text-decoration-none fs-2">
+
+            <h1 style="text-decoration:none; font-family: 'Concert One'">JoltLink</h1>
+          </a>
+
+
+        </header>
+
+        <div class="p-5 mb-4 bg-light rounded-3 container">
+          <div class="row">
+
+
+
+            <div class="py-5 col-md-8 col-sm-12" id="topdiv" style="display: flex; flex-direction: column; align-items: center;">
+              <h1 class="display-5 fw-bold mb-5">Your Shortened URL</h1>
+
+
+              <div class="col-lg-6 mb-0" id="middiv" style="align-items:center">
+
+
+                <div class="input-group input-group-lg mb-0">
+
+
+                  <input id="textOutput" type="text" class="form-control mb-0" name="urlLong" value="<%= url.urlShort %>">
+
+                  <span style="cursor:pointer" class="input-group-text btn btn-info btn-lg mb-0" id="copyButton">Copy
+                    URL</span>
+
+
+                </div>
+
+                
+              </div>
+
+              <p id="alertDiv" style="padding:0px;border: 1px solid transparent;">‎</p> 
+
+              
+
+
+              <p class="col-md-12 fs-4 mt-0">Copy the shortened link and share it in messages, texts, posts, websites and
+                other
+                locations. </p> <br><br>
+
+
+              <p style="word-wrap: break-word; width: 90%;" class="fs-5"> Long URL: <a href="<%= url.urlLong %>"
+                  style="text-decoration:none">
+                  <%= url.urlLong %></a></p>
+
+            </div>
+
+
+
+
+
+            <div class="col-md-4 col-sm-12">
+
+              <div class="card" style="width: 18rem;">
+
+                <div id="qrcode"></div>
+
+                <div class="card-body">
+                  <h5 class="card-title">QR Code of your Link</h5>
+                  <h5 class="card-title"><a href="<%= url.urlShort %>"><%= url.urlShort %></a></h5>
+                  <p class="card-text">Scan this QR code for a seamless journey to your website or save the image to
+                    spread the word.</p>
+                  <button class="btn btn-danger" id="downloadQRButton">Download this QR Code!</button>
+                </div>
+
+              </div>
+
+
+            </div>
+
+          </div>
+        </div>
+
+        <footer class="pt-3 mt-4 text-muted border-top"> || Manuj Web Odyssey || ©️ 2023 || </footer>
+      </div>
+    </main>
+
+
+    <script>
+      const textOutput = document.querySelector( "#textOutput" );
+      const copyButton = document.querySelector( "#copyButton" );
+      const alertDiv = document.querySelector( "#alertDiv" );
+
+      copyButton.addEventListener( "click", ( event ) =>
+      {
+
+        navigator.clipboard.writeText( textOutput.value )
+          .then( () =>
+          {
+            console.log( `text has been copied to clipboard` );
+          } )
+          .catch( ( error ) =>
+          {
+            console.log( `there is an error copying: ${ error }` );
+          } );
+
+        alertDiv.style.transition = "all 1.5s";
+        alertDiv.textContent = "👍URL copied!";
+        alertDiv.style.backgroundColor = "#6c757d";
+        alertDiv.style.border = "1px solid #6c757d";
+        alertDiv.style.color = "white";
+        alertDiv.style.borderRadius = "2px";
+
+        setTimeout( () =>
+        {
+
+          alertDiv.style.transition = "";
+          alertDiv.textContent = "‎";
+          alertDiv.style.backgroundColor = "";
+          alertDiv.style.border = "1px solid transparent";
+          alertDiv.style.color = "";
+          alertDiv.style.borderRadius = "";
+
+        }, 2000 );
+
+
+
+      } );
+
+
+    </script>
+
+
+
+
+    <script src="qrcode.js"></script>
+    <script>
+      var qrcode = new QRCode( document.getElementById( "qrcode" ), {
+        text: "<%= url.urlShort %>",
+        width: 284,
+        height: 284,
+        colorDark: "#000000",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.H
+      } );
+    </script>
+
+    <script>
+      const qrImg = document.querySelector( "#qrcode img" );
+      const downloadQRButton = document.querySelector( "#downloadQRButton" );
+
+      downloadQRButton.addEventListener( "click", ( event ) =>
+      {
+        const link = document.createElement( "a" );
+        link.download = "qrimage.png";
+        link.href = qrImg.src;
+        link.click();
+      } );
+
+
+
+
+    </script>
+
+  </body>
+
+</html>

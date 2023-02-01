@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="refresh" content="2; url=<%= url.urlLong %>"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Redirecting...</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet">
+
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    </head>
+
+    <body>
+
+        <div class="container py-4">
+            <header class="pb-3 mb-4 border-bottom">
+
+                <a href="/" class="d-flex align-items-center text-dark text-decoration-none fs-2">
+
+                    <h1 style="text-decoration:none; font-family: 'Concert One'">JoltLink</h1>
+                </a>
+
+
+            </header>
+
+            <div class="p-5 mb-4 bg-light rounded-3 container">
+                <div class="row">
+                    <div class="py-5 col-md-8 col-sm-12">
+                        <h1 class="display-5 fw-bold mb-5">Redirecting to your URL....</h1>
+
+
+                        
+
+
+
+                       
+                        <p style="word-wrap: break-word; width: 90%;" class="fs-5"> <a href="<%= url.urlLong %>" style="text-decoration:none">
+                                <%= url.urlLong %></a></p>
+                    </div>
+
+                    <div class="col-md-4 col-sm-12">
+
+                        <div class="card" style="width: 18rem;">
+
+                            <div id="qrcode"></div>
+
+                            <div class="card-body">
+                                <h5 class="card-title">Click Counter</h5>
+                                <h5 class="card-title">Total <%= url.urlClickCount %> clicks!</h5>
+                                <p class="card-text">Know your audience, with every click counted. Track your clicks, measure your success!</p>
+                                
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+
+            <footer class="pt-3 mt-4 text-muted border-top"> || Manuj Web Odyssey || ©️ 2023 || </footer>
+        </div>
+    </body>
+
+</html>

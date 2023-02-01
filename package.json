@@ -1,0 +1,16 @@
+{
+  "name": "joltlink",
+  "version": "1.0.0",
+  "description": "express mongoose web app for shortening urls using non-deterministic random hash",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Manuj Jain",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "mongoose": "^6.9.0"
+  }
+}
