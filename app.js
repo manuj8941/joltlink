@@ -1,6 +1,11 @@
+// const mongoHostString = "mongodb://localhost:27017/urlShortDB";
+// const mongoHostString = "mongodb+srv://manuj8941:w80Sxcjp7Q3T5IRd@cluster0.vzadowj.mongodb.net/?retryWrites=true&w=majority";
+
+
 const expressHostString = "http://localhost:3000";
-const mongoHostString = "mongodb://localhost:27017/urlShortDB";
+const mongoHostString = "mongodb+srv://manuj8941:w80Sxcjp7Q3T5IRd@cluster0.vzadowj.mongodb.net/jolttlinkDB?retryWrites=true&w=majority";
 const hostPort = "3000";
+
 
 const express = require( "express" );
 const app = express();
