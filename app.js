@@ -23,12 +23,12 @@ mongoose.set( "strictQuery", false );
 mongoose.connect( mongoHostString )
     .then( ( response ) =>
     {
-        console.log( "Connected to MongoDB" );
+        console.log( "CONNECTION ESTABLISHED TO MongoDB ALTAS" );
 
     } )
     .catch( ( error ) =>
     {
-        console.log( `Oh No MongoDB Connection Error: ${ error }` );
+        console.log( `Oh No! MongoDB CONNECTION ERROR: ${ error }` );
     } );
 
 const urlSchema = new mongoose.Schema(
@@ -141,6 +141,6 @@ app.get( "/:urlParam", ( req, res ) =>
 
 app.listen( hostPort, () =>
 {
-    console.log( `SERVER STARTED ON ${ process.env.PORT }` );
+    console.log( `SERVER STARTED ON ${ hostPort  }` );
 
 } );
