@@ -3,7 +3,7 @@
 
 
 const expressHostString = "http://localhost:3000";
-const mongoHostString = "mongodb+srv://manuj8941:w80Sxcjp7Q3T5IRd@cluster0.vzadowj.mongodb.net/jolttlinkDB?retryWrites=true&w=majority";
+const mongoHostString = "mongodb+srv://manuj8941:REbaBgwaahtLVEJL@joltlink.cjl86ox.mongodb.net/jolttlinkDB?retryWrites=true&w=majority";
 const hostPort = process.env.PORT || 3000;
 
 
@@ -141,6 +141,6 @@ app.get( "/:urlParam", ( req, res ) =>
 
 app.listen( hostPort, () =>
 {
-    console.log( "Server Started!" );
+    console.log( `SERVER STARTED ON ${ process.env.PORT }` );
 
 } );
