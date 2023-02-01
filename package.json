@@ -4,7 +4,7 @@
   "description": "express mongoose web app for shortening urls using non-deterministic random hash",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
   "author": "Manuj Jain",
   "license": "ISC",

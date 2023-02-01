@@ -1,10 +1,10 @@
 // const mongoHostString = "mongodb://localhost:27017/urlShortDB";
-// const mongoHostString = "mongodb+srv://manuj8941:w80Sxcjp7Q3T5IRd@cluster0.vzadowj.mongodb.net/?retryWrites=true&w=majority";
+
 
 
 const expressHostString = "http://localhost:3000";
 const mongoHostString = "mongodb+srv://manuj8941:w80Sxcjp7Q3T5IRd@cluster0.vzadowj.mongodb.net/jolttlinkDB?retryWrites=true&w=majority";
-const hostPort = "3000";
+const hostPort = process.env.PORT || 3000;
 
 
 const express = require( "express" );
@@ -123,7 +123,7 @@ app.get( "/:urlParam", ( req, res ) =>
         } )
         .catch( ( error ) =>
         {
-            const falseURLRequest = `${ expressHostString}/${ req.params.urlParam }`;
+            const falseURLRequest = `${ expressHostString }/${ req.params.urlParam }`;
             res.status( 404 ).render( "404.ejs", { falseURLRequest } );
         } );
 
@@ -141,8 +141,6 @@ app.get( "/:urlParam", ( req, res ) =>
 
 app.listen( hostPort, () =>
 {
-    console.log( "Listening on port 3000" );
-} )
+    console.log( "Server Started!" );
 
-
-;
+} );
