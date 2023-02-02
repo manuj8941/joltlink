@@ -126,7 +126,7 @@
 
           </div>
         </div>
-
+        <a id="link" download="qr.png"></a>
         <footer class="pt-3 mt-4 text-muted border-top"> || Manuj Web Odyssey || ©️ 2023 || </footer>
       </div>
     </main>
@@ -136,6 +136,7 @@
       const textOutput = document.querySelector( "#textOutput" );
       const copyButton = document.querySelector( "#copyButton" );
       const alertDiv = document.querySelector( "#alertDiv" );
+
 
       copyButton.addEventListener( "click", ( event ) =>
       {
@@ -183,39 +184,46 @@
 
 
     <script>
-      new QRCode( document.getElementById( "qrcode" ), 
-      {
-        text: "<%= url.urlShort %>",
-        width: 284,
-        height: 284,
-        colorDark: "#000000",
-        colorLight: "#ffffff",
-        correctLevel: QRCode.CorrectLevel.H
-      } );
+      var qrcode = new QRCode( document.getElementById( "qrcode" ),
+        {
+          text: "<%= url.urlShort %>",
+          width: 284,
+          height: 284,
+          colorDark: "#000000",
+          colorLight: "#ffffff",
+          correctLevel: QRCode.CorrectLevel.H
+        } );
 
       const qrImg = document.querySelector( "#qrcode img" );
       const downloadQRButton = document.querySelector( "#downloadQRButton" );
       const qrCanvas = document.querySelector( "#qrcode canvas" );
+      const link = document.querySelector( "#link" );
+
+
 
       downloadQRButton.addEventListener( "click", ( event ) =>
       {
-        const link = document.createElement( "a" );
-        link.download = "qrimage.png";
 
-        if ( qrImg.src == null )
+        if ( qrImg.src )
         {
           setTimeout( () =>
           {
             link.href = qrCanvas.toDataURL();
-          }, 500 );
+            link.click();
+          },
+            500 );
 
         } else 
         {
-          link.href = qrImg.src;
+          setTimeout( () =>
+          {
+            link.href = qrImg.src;
+            link.click();
+          },
+            500 );
         }
-
-        link.click();
       } );
+
 
 
     </script>
