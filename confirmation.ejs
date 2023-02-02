@@ -180,8 +180,11 @@
 
 
     <script src="qrcode.js"></script>
+
+
     <script>
-      var qrcode = new QRCode( document.getElementById( "qrcode" ), {
+      new QRCode( document.getElementById( "qrcode" ), 
+      {
         text: "<%= url.urlShort %>",
         width: 284,
         height: 284,
@@ -189,9 +192,7 @@
         colorLight: "#ffffff",
         correctLevel: QRCode.CorrectLevel.H
       } );
-    </script>
 
-    <script>
       const qrImg = document.querySelector( "#qrcode img" );
       const downloadQRButton = document.querySelector( "#downloadQRButton" );
       const qrCanvas = document.querySelector( "#qrcode canvas" );
@@ -201,7 +202,7 @@
         const link = document.createElement( "a" );
         link.download = "qrimage.png";
 
-        if ( qrImg.src === null )
+        if ( qrImg.src == null )
         {
           setTimeout( () =>
           {
