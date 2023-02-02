@@ -103,6 +103,9 @@ app.post( "/", ( req, res ) =>
 
 
 
+
+
+
 app.get( "/:urlParam", ( req, res ) =>
 {
 
@@ -135,12 +138,9 @@ app.get( "/:urlParam", ( req, res ) =>
 
 
 
-
-
-
-
 app.listen( hostPort, () =>
 {
-    console.log( `SERVER STARTED ON ${ hostPort  }` );
+    console.log( `SERVER STARTED ON ${ hostPort }` );
+
 
 } );
