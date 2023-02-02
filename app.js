@@ -1,9 +1,9 @@
 // const mongoHostString = "mongodb://localhost:27017/urlShortDB";
+//const expressHostString = "http://localhost:3000";
 
-
-
+const mongoKey = require( "./mongoKey.js" );
 const expressHostString = "https://joltlink.onrender.com";
-const mongoHostString = "mongodb+srv://manuj8941:REbaBgwaahtLVEJL@joltlink.cjl86ox.mongodb.net/jolttlinkDB?retryWrites=true&w=majority";
+const mongoHostString = `mongodb+srv://manuj8941:${ mongoKey }@joltlink.cjl86ox.mongodb.net/jolttlinkDB?retryWrites=true&w=majority`;
 const hostPort = process.env.PORT || 3000;
 
 
