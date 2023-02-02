@@ -34,7 +34,6 @@
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
         border-radius: 3%;
       }
-  
     </style>
 
 
@@ -62,7 +61,8 @@
 
 
 
-            <div class="py-5 col-md-8 col-sm-12" id="topdiv" style="display: flex; flex-direction: column; align-items: center;">
+            <div class="py-5 col-md-8 col-sm-12" id="topdiv"
+              style="display: flex; flex-direction: column; align-items: center;">
               <h1 class="display-5 fw-bold mb-5">Your Shortened URL</h1>
 
 
@@ -72,7 +72,8 @@
                 <div class="input-group input-group-lg mb-0">
 
 
-                  <input id="textOutput" type="text" class="form-control mb-0" name="urlLong" value="<%= url.urlShort %>">
+                  <input id="textOutput" type="text" class="form-control mb-0" name="urlLong"
+                    value="<%= url.urlShort %>">
 
                   <span style="cursor:pointer" class="input-group-text btn btn-info btn-lg mb-0" id="copyButton">Copy
                     URL</span>
@@ -80,15 +81,16 @@
 
                 </div>
 
-                
+
               </div>
 
-              <p id="alertDiv" style="padding:0px;border: 1px solid transparent;">‎</p> 
-
-              
+              <p id="alertDiv" style="padding:0px;border: 1px solid transparent;">‎</p>
 
 
-              <p class="col-md-12 fs-4 mt-0">Copy the shortened link and share it in messages, texts, posts, websites and
+
+
+              <p class="col-md-12 fs-4 mt-0">Copy the shortened link and share it in messages, texts, posts, websites
+                and
                 other
                 locations. </p> <br><br>
 
@@ -192,16 +194,27 @@
     <script>
       const qrImg = document.querySelector( "#qrcode img" );
       const downloadQRButton = document.querySelector( "#downloadQRButton" );
+      const qrCanvas = document.querySelector( "#qrcode canvas" );
 
       downloadQRButton.addEventListener( "click", ( event ) =>
       {
         const link = document.createElement( "a" );
         link.download = "qrimage.png";
-        link.href = qrImg.src;
+
+        if ( qrImg.src === null )
+        {
+          setTimeout( () =>
+          {
+            link.href = qrCanvas.toDataURL();
+          }, 500 );
+
+        } else 
+        {
+          link.href = qrImg.src;
+        }
+
         link.click();
       } );
-
-
 
 
     </script>
