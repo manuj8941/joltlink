@@ -32,7 +32,7 @@
 
       img {
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-        border-radius: 3%;
+        border-radius: 25%;
       }
     </style>
 
@@ -41,7 +41,7 @@
   </head>
 
   <body>
-
+    <img src="https://www.shutterstock.com/image-photo/surreal-image-african-elephant-wearing-260nw-1365289022.jpg">
 
     <main>
 
@@ -204,7 +204,7 @@
       downloadQRButton.addEventListener( "click", ( event ) =>
       {
 
-        if ( qrImg.src )
+        if ( !qrImg.src )
         {
           setTimeout( () =>
           {
