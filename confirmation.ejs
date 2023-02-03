@@ -32,7 +32,12 @@
 
       img {
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-        border-radius: 25%;
+        border-radius: 2.5%;
+        display: block !important;
+      }
+
+      canvas{
+        display: none !important;
       }
     </style>
 
@@ -41,7 +46,7 @@
   </head>
 
   <body>
-    <img src="https://www.shutterstock.com/image-photo/surreal-image-african-elephant-wearing-260nw-1365289022.jpg">
+
 
     <main>
 
@@ -203,26 +208,15 @@
 
       downloadQRButton.addEventListener( "click", ( event ) =>
       {
-
-        if ( !qrImg.src )
-        {
-          setTimeout( () =>
-          {
-            link.href = qrCanvas.toDataURL();
-            link.click();
-          },
-            500 );
-
-        } else 
-        {
-          setTimeout( () =>
-          {
-            link.href = qrImg.src;
-            link.click();
-          },
-            500 );
-        }
+        link.href = qrImg.src;
+        link.click();
+        
       } );
+
+
+
+
+
 
 
 
