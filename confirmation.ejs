@@ -33,12 +33,10 @@
       img {
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
         border-radius: 2.5%;
-        display: block !important;
+      
       }
 
-      canvas{
-        display: none !important;
-      }
+     
     </style>
 
 
@@ -189,6 +187,7 @@
 
 
     <script>
+      // navigator.platform = "Win32";
       var qrcode = new QRCode( document.getElementById( "qrcode" ),
         {
           text: "<%= url.urlShort %>",
@@ -206,11 +205,13 @@
 
 
 
+
       downloadQRButton.addEventListener( "click", ( event ) =>
       {
+
         link.href = qrImg.src;
         link.click();
-        
+
       } );
 
 
