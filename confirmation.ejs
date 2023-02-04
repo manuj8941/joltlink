@@ -4,9 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.108.0">
+  
     <title>Shortened URL</title>
 
 
@@ -28,15 +26,20 @@
         display: flex;
         justify-content: center;
         align-items: center;
+
       }
 
       img {
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-        border-radius: 2.5%;
-      
+        border-radius: 5%;
+
       }
 
-     
+
+      canvas {
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        border-radius: 5%;
+      }
     </style>
 
 
@@ -113,7 +116,7 @@
               <div class="card" style="width: 18rem;">
 
                 <div id="qrcode"></div>
-
+                <div><img id="img2"></div>
                 <div class="card-body">
                   <h5 class="card-title">QR Code of your Link</h5>
                   <h5 class="card-title"><a href="<%= url.urlShort %>"><%= url.urlShort %></a></h5>
@@ -129,7 +132,7 @@
 
           </div>
         </div>
-        <a id="link" download="qr.png"></a>
+       
         <footer class="pt-3 mt-4 text-muted border-top"> || Manuj Web Odyssey || ©️ 2023 || </footer>
       </div>
     </main>
@@ -173,8 +176,6 @@
 
         }, 2000 );
 
-
-
       } );
 
 
@@ -187,7 +188,7 @@
 
 
     <script>
-      // navigator.platform = "Win32";
+    
       var qrcode = new QRCode( document.getElementById( "qrcode" ),
         {
           text: "<%= url.urlShort %>",
@@ -197,32 +198,20 @@
           colorLight: "#ffffff",
           correctLevel: QRCode.CorrectLevel.H
         } );
-
       const qrImg = document.querySelector( "#qrcode img" );
       const downloadQRButton = document.querySelector( "#downloadQRButton" );
       const qrCanvas = document.querySelector( "#qrcode canvas" );
-      const link = document.querySelector( "#link" );
-
-
-
-
+      
+      const img2 = document.querySelector( "#img2" );
       downloadQRButton.addEventListener( "click", ( event ) =>
       {
-
-        link.href = qrImg.src;
+        const link = document.createElement("a");
+        link.download = "qrCode.png"
+        link.href = qrImg.src || qrCanvas.toDataURL();
         link.click();
-
       } );
 
-
-
-
-
-
-
-
     </script>
-
   </body>
 
 </html>
