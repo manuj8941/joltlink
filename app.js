@@ -16,10 +16,7 @@ try
     }
 }
 
-
-
-
-const expressHostString = "https://joltlink.onrender.com";
+const expressHostString = "https://web-production-b539.up.railway.app";
 const mongoHostString = `mongodb+srv://manuj8941:${ mongoKey }@joltlink.cjl86ox.mongodb.net/jolttlinkDB?retryWrites=true&w=majority`;
 const hostPort = process.env.PORT || 3000;
 
